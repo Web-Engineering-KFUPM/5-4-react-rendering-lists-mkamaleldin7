@@ -7,8 +7,8 @@ export default function TaskItem({ task, onToggle, onDelete }) {
           {task.title}
       </label>
       {!task.isDone && <DueBadge dueDate={task.dueDate} />} 
-      <input type="checkbox" checked={task.isDone} onChange={() => onToggle(task.id)} />   
-      <button onClick = {() => onDelete(task.id)} className="ghost" aria-label="Delete task">
+      <input type="checkbox" checked={task.isDone} onChange={() => onToggle(task.id)} />      
+      <button className="ghost" aria-label="Delete task" onClick={() => onDelete(task.id)}>
         ✕
       </button>
     </li>

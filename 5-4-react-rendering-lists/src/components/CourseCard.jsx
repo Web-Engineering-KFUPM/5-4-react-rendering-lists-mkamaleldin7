@@ -16,9 +16,11 @@ export default function CourseCard({ course, index, onMutateCourse }) {
 
   function addTask(e) {
     e.preventDefault();
+
+    const id = Date.now();
     const newTask = {
-      id: Date.now(),
-      title: title,
+      id,
+      title,
       dueDate: date,
       isDone: false
     };
@@ -31,8 +33,7 @@ export default function CourseCard({ course, index, onMutateCourse }) {
     <article className="course card">
       <header className="cardHeader">
         <h2>{course.title}</h2>
-        {course.tasks.length === 0 && <p>All caught up</p>}
- 
+      {course.tasks.length > 0 && course.tasks.every(t => t.isDone) && "All caught up!"}  
       </header>
 
     
